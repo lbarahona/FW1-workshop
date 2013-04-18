@@ -4,9 +4,9 @@
 	#view('includes/html_head')#
 	<body>
 	  #view('includes/header')#
-	  <div class="container-fluid">
+	  <div class="container">
 	  	<div class="row-fluid">
-	  	  <!---#view('includes/sidebar')#--->
+	  	  #view('includes/message')#
 	  	  <div class="span12">
 	  	  	#body#
 	  	  </div>

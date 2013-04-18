@@ -6,7 +6,7 @@
 			applicationname = "manager_fw1_#hash(getCurrentTemplatePath())#",
 			appTitle = "My Manager",
 			sessionTimeout = createTimespan(0,0,30,0),
-			companyName = "San Services",
+			companyName = "My Company",
 			theme = "default",
 			username = "admin",
 			password = "admin"
