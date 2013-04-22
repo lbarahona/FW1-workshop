@@ -1,10 +1,8 @@
-﻿<cfset request.layout = false />
-<!--- courtesy of Andreas Schuldhaus --->
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Error :(</title>
+        <title>Page Not Found :(</title>
         <style>
             ::-moz-selection {
                 background: #b3d4fc;
@@ -143,21 +141,17 @@
     </head>
     <body>
         <div class="container">
-            <cfoutput>    
-                <h3 class="alert-heading">Error!</h3>
-                <p>
-                    <ul>
-                        <li><strong>Action:</strong> #request.action#</li>
-                        <li><strong>Message:</strong> #request.exception.cause.message#</li>
-                        <li><strong>Event Name:</strong> #request.exception.name#</li>
-                        <li><strong>Type:</strong> #request.exception.cause.type#</li>
-                        <cfif len(request.exception.cause.detail)>
-                        <li><strong>Detail:</strong> #request.exception.cause.detail#</li>
-                        </cfif>
-                    </ul>
-                </p>
-                <!--- <cfdump var="#request.exception#" /> --->
-            </cfoutput>
+            <h1>Not found <span>:(</span></h1>
+            <p>Sorry, but the page you were trying to view does not exist.</p>
+            <p>It looks like this was the result of either:</p>
+            <ul>
+                <li>a mistyped address</li>
+                <li>an out-of-date link</li>
+            </ul>
+            <script>
+                var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
+            </script>
+            <script src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
         </div>
     </body>
 </html>
