@@ -9,7 +9,8 @@
 			companyName = "My Company",
 			theme = "default",
 			username = "admin",
-			password = "admin"
+			password = "admin",
+			dsn = "myadmin"
 		}
 	};
 </cfscript>

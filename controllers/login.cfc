@@ -1,32 +1,45 @@
-﻿component {
-	function init( fw ) {
-		variables.fw = fw;
-		return this;
-	}
-	
-	function check(rc) {
-        if(rc.username == rc.settings.global.username &&
-           rc.password == rc.settings.global.password) {
-			session.auth = {};
-			session.auth.isLoggedIn = true;
-			session.auth.fullname = 'Administrator';
-						
-			variables.fw.redirect('main');
-        }
-        
-        rc.msg = "Login Failed, Username or Password are invalid";
-        writelog("Login Failed | username=#rc.username#","info",false,"auth");
-    }
+﻿<cfcomponent>
 
-	function endCheck() {
-		variables.fw.redirect('login','msg');
-	}
+	<cffunction name="init">
+		<cfargument name="fw" type="any" />
+		<cfset variables.fw = fw />
+		<Cfreturn this />
+	</cffunction>
 
-    function logout(rc) {
-        session.auth = {};
-        session.auth.isLoggedIn = false;
-        session.auth.fullname = 'Guest';
+	<cffunction name="default" output="false">
 		
-        variables.fw.redirect('main');
-    }
-}
+		<cfset request.layout = false>
+		<cfset rc.title  = "Application Login" />
+
+	</cffunction>
+
+	<cffunction name="startCheck" output="false">
+		<cfset variables.fw.service("userService.validateLogin", "qryUserInfo") />
+	</cffunction>
+
+	<cffunction name="endCheck" output="false">
+
+		<cfif rc.qryUserInfo.recordCount GT 0>
+			<cfset session.auth = structNew() />
+			<cfset session.auth.isLoggedIn = true />
+			<cfset session.auth.fullname = rc.qryUserInfo.username />
+			<cfset variables.fw.redirect('main') />
+		<cfelse>
+			<cfset rc.msg = "Login Failed, Username or Password are invalid" />
+			<cfset rc.msgType = "error" />
+			<cfset variables.fw.redirect('login','msg,msgType') />
+		</cfif>
+		
+	</cffunction>
+
+	<cffunction name="logout" output="false">
+
+		<cfset session.auth = structNew() />
+		<cfset session.auth.isLoggedIn = false />
+		<cfset session.auth.fullname = "Guest" />
+
+		<cfset variables.fw.redirect("main") />
+		
+	</cffunction>
+
+</cfcomponent>

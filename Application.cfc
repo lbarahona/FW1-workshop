@@ -27,7 +27,7 @@ component extends="core.corfield.framework" {
 	}
 	
 	function before() {
-		request.context.starttime = getTickCount();
+		rc.starttime = getTickCount();
 	}
 	
 	function setupRequest() {

@@ -1,6 +1,4 @@
-﻿<cfset request.layout = false>
-<cfset rc.title  = "Application Login" />
-<cfoutput>
+﻿<cfoutput>
 <!doctype html>
 <html>
   <!--- HTML head --->
