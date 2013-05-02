@@ -14,7 +14,7 @@
                         <li><a href="about">Users</a></li>
                     </ul>
                     <p class="navbar-text pull-right">
-                        Logged as <a href="##" class="navbar-link">#rc.auth.fullname#</a> | <a href="#buildURL('login.logout')#" class="navbar-link">Logout</a>
+                        Logged as <a href="##" class="navbar-link">#rc.auth.username#</a> | <a href="#buildURL('login.logout')#" class="navbar-link">Logout</a>
                     </p>
                 </div><!--/.nav-collapse -->
             </div><!--- /.container --->

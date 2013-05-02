@@ -22,7 +22,7 @@
 		<cfif rc.qryUserInfo.recordCount GT 0>
 			<cfset session.auth = structNew() />
 			<cfset session.auth.isLoggedIn = true />
-			<cfset session.auth.fullname = rc.qryUserInfo.username />
+			<cfset session.auth.username = rc.qryUserInfo.username />
 			<cfset variables.fw.redirect('main') />
 		<cfelse>
 			<cfset rc.msg = "Login Failed, Username or Password are invalid" />
@@ -36,7 +36,7 @@
 
 		<cfset session.auth = structNew() />
 		<cfset session.auth.isLoggedIn = false />
-		<cfset session.auth.fullname = "Guest" />
+		<cfset session.auth.username = "Guest" />
 
 		<cfset variables.fw.redirect("main") />
 		

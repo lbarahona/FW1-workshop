@@ -8,7 +8,7 @@
     function setSession(rc) {
         session.auth = {};
         session.auth.isLoggedIn = false;
-        session.auth.fullname = 'Guest';
+        session.auth.username = 'Guest';
     }
 
     function authorize(rc) {

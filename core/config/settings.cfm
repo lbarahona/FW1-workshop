@@ -8,8 +8,6 @@
 			sessionTimeout = createTimespan(0,0,30,0),
 			companyName = "My Company",
 			theme = "default",
-			username = "admin",
-			password = "admin",
 			dsn = "myadmin"
 		}
 	};
